@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm audit:*)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "Bash(npm install:*)",
+      "Read(/home/gareth-bew/**)",
+      "Bash(tmux display-message:*)",
+      "Bash(./schedule_with_note.sh:*)",
+      "Bash(Tmux-Orchestrator/schedule_with_note.sh:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tmux list-windows:*)",
+      "Bash(tmux rename-window:*)",
+      "Bash(tmux new-window:*)",
+      "Bash(tmux new-session:*)",
+      "Bash(git config:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(chmod:*)",
+      "Bash(./scripts/swarm_status.sh:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(./scripts/update_team_status.sh:*)",
+      "Bash(tmux send-keys:*)",
+      "Bash(python -m uvicorn:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(npm run build)",
+      "Bash(npm run build:*)",
+      "Bash(sed:*)"
+    ],
+    "deny": []
+  }
+}
