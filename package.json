@@ -165,7 +165,7 @@
     "vite": "^5.4.1",
     "vite-bundle-analyzer": "^1.2.1",
     "vite-plugin-imagemin": "^0.6.1",
-    "vite-plugin-pwa": "^1.0.2",
+    "vite-plugin-pwa": "^1.0.3",
     "vitest": "^3.2.4"
   },
   "packageManager": "yarn@4.4.1+sha224.fd21d9eb5fba020083811af1d4953acc21eeb9f6ff97efd1b3f9d4de"
