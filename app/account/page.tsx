@@ -126,8 +126,10 @@ export default function AccountPage() {
 
   const handleSignOut = async () => {
     try {
-      await stackApp.signOut();
-      router.push('/');
+      if (user && user.signOut) {
+        await user.signOut();
+        router.push('/');
+      }
     } catch (error) {
       console.error('Sign out failed:', error);
     }
