@@ -107,6 +107,42 @@ server.pid
 frontend.pid
 90%
 nul
-Tmux-Orchestrator
-Tmux-Orchestrator
-Tmux-Orchestrator
+Tmux-Orchestrator/
+
+# Development artifacts and temporary files
+*.html
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.json.backup
+*.md.backup
+*.ts.backup
+*.py
+*.backup
+.roomodes
+.git.backup
+.claude/
+.kiro/
+.zed/
+90%
+*.pid
+frontend.pid
+server.pid
+
+# Generated documentation and reports
+OUR_GROUNDS_*.md
+OUR_GROUNDS_*.json
+*_REPORT.md
+*_SUMMARY.md
+*_GUIDE.md
+*DOCUMENTATION.md
+claudedocs/
+docs/generated/
+
+# Test and development files
+test-*.html
+*-demo.html
+color-transformation-demo.html
+design-screenshots/
+playwright-report/
