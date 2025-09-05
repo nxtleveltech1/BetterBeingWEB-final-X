@@ -19,7 +19,7 @@ import {
   Truck,
   Clock,
 } from "lucide-react";
-import { useCart, CartItem } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 // Mock cart data - would be replaced with actual API calls
 const mockCartItems = [
@@ -50,7 +50,7 @@ const mockCartItems = [
   }
 ];
 
-interface CartItem {
+interface CartPageItem {
   id: number;
   product_id: number;
   quantity: number;
@@ -82,7 +82,7 @@ function CartItemComponent({
   onRemove, 
   isUpdating 
 }: { 
-  item: CartItem;
+  item: CartPageItem;
   onUpdateQuantity: (itemId: number, quantity: number) => void;
   onRemove: (itemId: number) => void;
   isUpdating: boolean;
