@@ -93,17 +93,17 @@ export default function OrderHistoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F9E7C9]">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90">
+      <div className="container mx-auto px-6 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
-            <Link href="/account" className="flex items-center space-x-2 text-[#ba7500] hover:text-[#C4C240] transition-colors">
+            <Link href="/account" className="flex items-center space-x-2 text-bb-payne-gray hover:text-bb-mahogany transition-colors">
               <ArrowLeft className="w-5 h-5" />
-              <span>Back to Account</span>
+              <span className="font-medium">Back to Account</span>
             </Link>
           </div>
-          <h1 className="text-2xl font-bold text-[#ba7500]">Order History</h1>
+          <h1 className="text-3xl font-heading font-bold text-bb-black-bean">Order History</h1>
         </div>
 
         <div className="bg-white/50 backdrop-blur-sm border border-[#ba7500]/20 rounded-lg p-6">
