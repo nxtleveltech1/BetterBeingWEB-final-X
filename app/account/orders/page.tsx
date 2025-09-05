@@ -30,7 +30,7 @@ const mockOrders = [
   {
     id: "ORD-2024-001",
     date: "2024-03-15",
-    status: "delivered",
+    status: "delivered" as const,
     total: 329.97,
     itemCount: 3,
     trackingNumber: "BB1234567890",
@@ -67,7 +67,7 @@ const mockOrders = [
   {
     id: "ORD-2024-002",
     date: "2024-03-10",
-    status: "shipped",
+    status: "shipped" as const,
     total: 199.99,
     itemCount: 1,
     trackingNumber: "BB0987654321",
@@ -94,7 +94,7 @@ const mockOrders = [
   {
     id: "ORD-2024-003", 
     date: "2024-03-05",
-    status: "processing",
+    status: "processing" as const,
     total: 89.99,
     itemCount: 1,
     estimatedDelivery: "2024-03-12",
@@ -120,7 +120,7 @@ const mockOrders = [
   {
     id: "ORD-2024-004",
     date: "2024-02-28",
-    status: "cancelled",
+    status: "cancelled" as const,
     total: 149.99,
     itemCount: 1,
     cancellationReason: "Out of stock",
