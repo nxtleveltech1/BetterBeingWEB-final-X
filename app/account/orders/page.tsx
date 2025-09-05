@@ -123,6 +123,7 @@ const mockOrders = [
     status: "cancelled" as const,
     total: 149.99,
     itemCount: 1,
+    estimatedDelivery: "2024-03-05",
     cancellationReason: "Out of stock",
     refundStatus: "processed",
     shippingAddress: {
