@@ -107,3 +107,4 @@ server.pid
 frontend.pid
 90%
 nul
+Tmux-Orchestrator
