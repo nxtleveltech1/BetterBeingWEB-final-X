@@ -1,18 +1,24 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
 yarn-error.log*
+npm-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Next.js
+.next/
+out/
+build/
+dist/
 
-# Environment files - NEVER COMMIT THESE
+# Production
+.vercel/
+.env*.local
+
+# Environment variables - NEVER COMMIT THESE
 .env
 .env.local
 .env.development
@@ -29,15 +35,75 @@ dist-ssr
 *.p12
 *.pfx
 
-# Editor directories and files
+# Testing
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+test-results-*
+
+# IDEs and editors
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-/dist
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Cache directories
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional npm cache directory
+.npm
+
+# Temporary files
+.tmp/
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Development and build artifacts  
+*.tgz
+*.tar.gz
 .roo/
+
+# IDE specific
+.vscode/settings.json
+.idea/
+
+# Project specific exclusions
+"white logo.png"
+"Untitled design (1).png"
+*.pid
+server.pid
+frontend.pid
+90%
+nul
