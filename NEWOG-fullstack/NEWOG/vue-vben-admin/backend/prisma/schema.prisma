@@ -1,0 +1,43 @@
+// Prisma schema for Better Being (Neon Postgres)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // Add more fields as needed
+
+  content   Content[]
+  feedback  Feedback[]
+}
+
+model Content {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  published Boolean   @default(false)
+  user      User?     @relation(fields: [userId], references: [id])
+  userId    String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Feedback {
+  id        String   @id @default(uuid())
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  message   String
+  createdAt DateTime @default(now())
+}
+
