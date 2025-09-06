@@ -145,4 +145,6 @@ test-*.html
 *-demo.html
 color-transformation-demo.html
 design-screenshots/
+# Exclude NEWOG-fullstack project from build
+NEWOG-fullstack/
 playwright-report/
