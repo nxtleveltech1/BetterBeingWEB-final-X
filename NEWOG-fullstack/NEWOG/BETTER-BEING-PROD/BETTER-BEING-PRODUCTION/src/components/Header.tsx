@@ -35,7 +35,7 @@ export const Header = () => {
               <User className="w-4 h-4 mr-2" />
               Login
             </Button>
-            <Button variant="default" size="sm" className="shadow-wellness">
+            <Button variant="secondary" size="sm" className="shadow-wellness">
               <ShoppingBag className="w-4 h-4 mr-2" />
               Shop Now
             </Button>
@@ -68,7 +68,7 @@ export const Header = () => {
                   <User className="w-4 h-4 mr-2" />
                   Login
                 </Button>
-                <Button variant="default" size="sm">
+                <Button variant="secondary" size="sm">
                   <ShoppingBag className="w-4 h-4 mr-2" />
                   Shop Now
                 </Button>

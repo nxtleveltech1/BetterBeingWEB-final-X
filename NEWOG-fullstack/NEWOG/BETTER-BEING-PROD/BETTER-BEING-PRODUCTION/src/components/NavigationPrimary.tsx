@@ -118,7 +118,7 @@ const NavigationPrimary = () => {
               </div>
             ) : (
               <Link to="/login">
-                <Button variant="default" size="sm">
+                <Button variant="secondary" size="sm">
                   Sign In
                 </Button>
               </Link>
@@ -255,7 +255,7 @@ const NavigationPrimary = () => {
                 </div>
               ) : (
                 <Link to="/login">
-                  <Button variant="default" size="sm">
+                  <Button variant="secondary" size="sm">
                     Sign In
                   </Button>
                 </Link>
