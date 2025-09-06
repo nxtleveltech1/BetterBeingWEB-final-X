@@ -1,16 +1,20 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+yarn-error.log*
+npm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
 # Archives and compressed files
 *.zip
 *.rar
 *.tar.gz
 *.tar
 *.7z
-
-# Node modules and dependencies
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+*.tgz
 
 # Build outputs
 dist/
@@ -20,19 +24,78 @@ out/
 .nuxt/
 .vuepress/dist/
 
-# Environment variables
+# Production
+.vercel/
+
+# Environment variables - NEVER COMMIT THESE
 .env
 .env.local
+.env.development
 .env.development.local
+.env.test
 .env.test.local
+.env.production
 .env.production.local
+.env*.local
+**/.env
+**/.env.*
 
-# IDE and editor files
-.vscode/
+# Security files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+test-results/
+test-results-*
+playwright-report/
+
+# IDEs and editors
+.vscode/*
+!.vscode/extensions.json
+.vscode/settings.json
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 *.swp
 *.swo
 *~
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+server.pid
+frontend.pid
+
+# Cache directories
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.npm
+
+# Temporary files
+.tmp/
+temp/
+*.tmp
+*.temp
 
 # OS generated files
 .DS_Store
@@ -43,18 +106,25 @@ out/
 ehthumbs.db
 Thumbs.db
 nul
+90%
 
 # Claude specific
 .claude/
 .claude-flow/
+.kiro/
+.zed/
 
-# Temporary files
-.tmp/
-temp/
-*.tmp
-*.temp
+# Development artifacts
+.roo/
+.roomodes
+.git.backup
+Tmux-Orchestrator/
 
-# Large media files (specific exclusions)
+# Project specific exclusions
+"white logo.png"
+"Untitled design (1).png"
+
+# Large media files and archives
 NEWOG-fullstack/NEWOG/archives/
 *.png
 *.jpg
@@ -66,7 +136,31 @@ NEWOG-fullstack/NEWOG/archives/
 *.mp4
 *.mov
 *.avi
+*.html
+
+# Backup files
+*.json.backup
+*.md.backup
+*.ts.backup
+*.py
+*.backup
 
 # Problematic long paths
 NEWOG-fullstack/NEWOG/node_modules/
 .deb
+
+# Generated documentation and reports
+OUR_GROUNDS_*.md
+OUR_GROUNDS_*.json
+*_REPORT.md
+*_SUMMARY.md
+*_GUIDE.md
+*DOCUMENTATION.md
+claudedocs/
+docs/generated/
+
+# Test and development files
+test-*.html
+*-demo.html
+color-transformation-demo.html
+design-screenshots/
