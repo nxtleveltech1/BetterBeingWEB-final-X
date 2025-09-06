@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, User, Heart, Brain, Zap, Shield, Star } from "lucide-react";
-import journeyImage from "@/assets/wellness-journey.jpg";
+// Using placeholder image for wellness journey
 
 const journeySteps = [
   {
@@ -69,7 +69,7 @@ export const WellnessJourney = () => {
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl shadow-floating">
                 <img 
-                  src={journeyImage} 
+                  src="/vegan_probiotic-600x600.webp" 
                   alt="Wellness transformation journey"
                   className="w-full h-96 object-cover"
                 />

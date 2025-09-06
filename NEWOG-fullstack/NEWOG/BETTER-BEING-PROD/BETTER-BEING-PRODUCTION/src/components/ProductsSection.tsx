@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ShoppingCart, Heart } from "lucide-react";
-import productsImage from "@/assets/products-showcase.jpg";
+// Using placeholder image for products showcase
 import { products, Product } from "@/data/products";
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,7 @@ export const ProductsSection = () => {
         <div className="relative mb-16 animate-scale-in">
           <div className="relative overflow-hidden rounded-3xl shadow-floating">
             <img 
-              src={productsImage} 
+              src="/all_prouct_shots-1.webp" 
               alt="Premium wellness products showcase"
               className="w-full h-64 md:h-96 object-cover"
             />
