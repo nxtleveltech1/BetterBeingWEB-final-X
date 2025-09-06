@@ -1,4 +1,6 @@
 import type { Product, Category } from "@/types/product";
+// Re-export types so consumers can `import type { Product } from "@/data/products"`
+export type { Product, Category } from "@/types/product";
 
 export const categories: Category[] = [
   {
