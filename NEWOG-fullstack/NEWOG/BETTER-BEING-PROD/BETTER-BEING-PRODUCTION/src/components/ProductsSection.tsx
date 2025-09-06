@@ -2,11 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ShoppingCart, Heart } from "lucide-react";
 import productsImage from "@/assets/products-showcase.jpg";
-import { featuredProducts, Product } from "@/data/products";
+import { products, Product } from "@/data/products";
 import { Link } from "react-router-dom";
 
 export const ProductsSection = () => {
-  // Using imported featuredProducts array
+  // Filter products to get featured ones
+  const featuredProducts = products.filter(product => product.featured);
+  
   return (
     <section id="products" className="py-20 bg-gradient-wellness">
       <div className="container mx-auto px-4">
