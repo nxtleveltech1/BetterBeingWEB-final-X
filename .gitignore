@@ -1,31 +1,72 @@
-NEWOG-fullstack/NEWOG/BetterBeingWEB.zip
-BetterBeingWEB-final X.rar
-BetterBeingWEB-prod.zip
-NEWOG-fullstack.rar
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-0.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-1.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-2.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-3.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-4.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-5.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-6.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-7.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-8.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-9.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-10.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-11.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-12.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-13.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-14.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-15.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-16.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-17.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-18.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-19.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-20.jpg
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/grounds-dimension-shift-main/public/brand-bible/Brand Bible BB-4-images-21.jpg
-NEWOG-fullstack/NEWOG/archives/drive-download-20250715T110001Z-1-001.zip
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main.zip
-NEWOG-fullstack/NEWOG/archives/grounds-dimension-shift-main.zip
-NEWOG-fullstack/NEWOG/archives/our-grounds.com-1752578710004.zip
-NEWOG-fullstack/NEWOG/archives/BetterBeingV1.0-main/our-grounds.com-1752578710004.zip
+# Archives and compressed files
+*.zip
+*.rar
+*.tar.gz
+*.tar
+*.7z
+
+# Node modules and dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+nul
+
+# Claude specific
+.claude/
+.claude-flow/
+
+# Temporary files
+.tmp/
+temp/
+*.tmp
+*.temp
+
+# Large media files (specific exclusions)
+NEWOG-fullstack/NEWOG/archives/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.pdf
+*.mp4
+*.mov
+*.avi
+
+# Problematic long paths
+NEWOG-fullstack/NEWOG/node_modules/
+.deb
