@@ -28,9 +28,6 @@ import {
   Truck
 } from "lucide-react";
 
-// Add dynamic export to prevent SSG
-export const dynamic = 'force-dynamic';
-
 // Mock user data - updated to use Stack Auth user data
 const mockUser = {
   id: 1,
@@ -579,7 +576,7 @@ function AccountPageContent() {
 
                       <div className="flex items-center justify-between p-4 bg-[var(--color-neutral-100)] rounded-lg">
                         <div>
-                          <h4 className="font-medium text-[var(--color-neutral-900)]">
+                          <h4 className="font-medium text-[var(--color-neutral-700)] mb-2">
                             Push Notifications
                           </h4>
                           <p className="text-[var(--color-neutral-600)] text-sm">
