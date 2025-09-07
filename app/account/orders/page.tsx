@@ -4,7 +4,7 @@
 export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
-import { useUser, useStackApp } from '@/lib/useAuth';
+import { useAuth } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -422,14 +422,13 @@ function OrderCard({ order, isExpanded, onToggle }: {
 }
 
 export default function OrderHistoryPage() {
-  const user = useUser();
-  const stackApp = useStackApp();
+  const { user, isLoading, logout } = useAuth();
   const router = useRouter();
   const [orders, setOrders] = useState<Order[]>(mockOrders);
   const [expandedOrders, setExpandedOrders] = useState<Set<string>>(new Set());
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingOrders, setIsLoadingOrders] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -439,9 +438,11 @@ export default function OrderHistoryPage() {
 
   const handleSignOut = async () => {
     try {
-      if (user && user.signOut) {
-        await user.signOut();
+      const result = await logout();
+      if (result.success) {
         router.push('/');
+      } else {
+        console.error('Sign out failed:', result.error);
       }
     } catch (error) {
       console.error('Sign out failed:', error);
@@ -476,7 +477,7 @@ export default function OrderHistoryPage() {
     cancelled: orders.filter(o => o.status === 'cancelled').length
   };
 
-  if (!user) {
+  if (isLoading || !user) {
     return (
       <div className="min-h-screen bg-[var(--bb-champagne)] flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--bb-mahogany)]"></div>
@@ -628,7 +629,7 @@ export default function OrderHistoryPage() {
 
         {/* Orders List */}
         <div className="space-y-6">
-          {isLoading ? (
+          {isLoadingOrders ? (
             <div className="flex items-center justify-center py-16">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--bb-mahogany)]"></div>
               <span className="ml-3 text-[var(--bb-payne-gray)]">Loading orders...</span>
