@@ -207,10 +207,10 @@ function AccountPageContent() {
                   <User className="w-10 h-10 text-white" />
                 </div>
                 <h1 className="text-xl font-heading font-bold text-[var(--color-neutral-900)] mb-1">
-                  {user?.displayName || user?.primaryEmail || 'Guest User'}
+                  {user?.firstName ? `${user.firstName} ${user.lastName || ''}`.trim() : user?.email || 'Guest User'}
                 </h1>
                 <p className="text-[var(--color-neutral-600)] text-sm">
-                  {user?.primaryEmail || 'No email available'}
+                  {user?.email || 'No email available'}
                 </p>
               </div>
 
