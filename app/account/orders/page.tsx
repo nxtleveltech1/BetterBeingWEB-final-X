@@ -1,7 +1,10 @@
 'use client';
 
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react';
-import { useUser, useStackApp } from '@stackframe/stack';
+import { useUser, useStackApp } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {

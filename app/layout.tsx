@@ -4,7 +4,8 @@ import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
 import Providers from './providers'
 import { Toaster } from 'sonner'
-import StackAuthWrapper from './StackAuthWrapper'
+import StackAuthProvider from './StackAuthProvider'
+import ClientBoundary from './components/ClientBoundary'
 
 export default function RootLayout({
   children,
@@ -19,14 +20,24 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <StackAuthWrapper>
+        <ClientBoundary fallback={
+          // SSR/SSG fallback without auth providers
           <Providers>
             <Header />
             <main>{children}</main>
             <Footer />
             <Toaster richColors position="top-right" />
           </Providers>
-        </StackAuthWrapper>
+        }>
+          <StackAuthProvider>
+            <Providers>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+              <Toaster richColors position="top-right" />
+            </Providers>
+          </StackAuthProvider>
+        </ClientBoundary>
       </body>
     </html>
   )

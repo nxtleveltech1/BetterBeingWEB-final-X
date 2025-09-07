@@ -1,5 +1,8 @@
 'use client';
 
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
+
 import Link from "next/link";
 import { 
   CheckCircle, 

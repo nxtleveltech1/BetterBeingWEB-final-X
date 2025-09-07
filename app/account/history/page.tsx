@@ -1,10 +1,14 @@
 'use client';
 
-import { useUser } from '@stackframe/stack';
+import { useUser } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { ArrowLeft, Package, CheckCircle, Clock, Truck, X, Eye } from 'lucide-react';
+import AuthGuard from '../../components/AuthGuard';
+
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
 
 const mockOrders = [
   {
@@ -74,23 +78,8 @@ function OrderStatusBadge({ status }: { status: string }) {
   );
 }
 
-export default function OrderHistoryPage() {
+function OrderHistoryContent() {
   const user = useUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!user) {
-      router.push('/auth/login');
-    }
-  }, [user, router]);
-
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-[#F9E7C9] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ba7500]"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90">
@@ -219,5 +208,13 @@ export default function OrderHistoryPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function OrderHistoryPage() {
+  return (
+    <AuthGuard requireAuth={true}>
+      <OrderHistoryContent />
+    </AuthGuard>
   );
 }

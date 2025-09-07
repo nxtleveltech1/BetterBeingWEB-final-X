@@ -1,10 +1,14 @@
 'use client';
 
-import { useUser } from '@stackframe/stack';
+import { useUser } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ShoppingCart, Plus, Minus, ArrowLeft, CreditCard, Truck } from 'lucide-react';
+import AuthGuard from '../../components/AuthGuard';
+
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
 
 const products = [
   {
@@ -41,25 +45,10 @@ const products = [
   }
 ];
 
-export default function OrderPage() {
+function OrderContent() {
   const user = useUser();
-  const router = useRouter();
   const [cart, setCart] = useState<any[]>([]);
   const [showCheckout, setShowCheckout] = useState(false);
-
-  useEffect(() => {
-    if (!user) {
-      router.push('/auth/login');
-    }
-  }, [user, router]);
-
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-[#F9E7C9] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ba7500]"></div>
-      </div>
-    );
-  }
 
   const addToCart = (product: any) => {
     const existing = cart.find(item => item.id === product.id);
@@ -232,5 +221,13 @@ export default function OrderPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function OrderPage() {
+  return (
+    <AuthGuard requireAuth={true}>
+      <OrderContent />
+    </AuthGuard>
   );
 }

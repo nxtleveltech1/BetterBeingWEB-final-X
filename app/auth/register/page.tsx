@@ -1,9 +1,12 @@
 'use client';
 
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useAuth } from "@/contexts/AuthContext";
+import { useUser } from '@/lib/useAuth';
 import { 
   Eye, 
   EyeOff, 
@@ -32,7 +35,13 @@ export default function Register() {
     agreeToTerms: false
   });
   const router = useRouter();
-  const { register: registerUser } = useAuth();
+  const user = useUser();
+  const registerUser = async (data: any) => {
+    // Mock register function - replace with Stack Auth when configured
+    console.log('Registration attempt:', data);
+    // For now, just redirect to login
+    router.push('/auth/login');
+  };
 
   const passwordRequirements = [
     { label: "At least 8 characters", met: formData.password.length >= 8 },
