@@ -4,7 +4,7 @@ import { Star, ShoppingCart, Heart } from "lucide-react";
 // Using placeholder image for products showcase
 import { products } from "@/data/products";
 import type { Product } from "@/data/products";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export const ProductsSection = () => {
   // Filter products to get featured ones
@@ -131,7 +131,7 @@ export const ProductsSection = () => {
 
         {/* CTA */}
        <div className="text-center animate-fade-in-up">
-         <Link to="/products">
+         <Link href="/products">
            <Button size="lg" variant="outline" className="border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-lg px-8 py-4">
              View All Better Being Products
            </Button>
