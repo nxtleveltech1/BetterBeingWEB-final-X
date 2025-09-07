@@ -1,5 +1,8 @@
 'use client';
 
+// Prevent SSG and ensure runtime-only behavior
+export const dynamic = 'force-dynamic';
+
 import { SignIn } from '@/lib/StackAuthComponents';
 import Link from "next/link";
 import { Leaf } from "lucide-react";

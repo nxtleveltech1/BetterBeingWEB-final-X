@@ -2,11 +2,22 @@
 
 import { ReactNode } from 'react';
 import { MockStackProvider } from './mockStackAuth';
+import { stackApp } from '@/lib/stack';
 
-// Simple wrapper that uses mock Stack Auth during build/deployment
 export default function StackAuthWrapper({ children }: { children: ReactNode }) {
-  // Use mock Stack Auth provider to maintain component compatibility
-  // TODO: Re-enable real Stack Auth when environment variables are properly configured
+  // If Stack Auth env vars are configured, wrap the app in the real provider.
+  // Otherwise, fall back to a mock provider to keep the UI working without auth.
+  const hasStackEnv = Boolean(process.env.NEXT_PUBLIC_STACK_PROJECT_ID);
+
+  if (hasStackEnv) {
+    const { StackProvider } = require('@stackframe/stack');
+    return (
+      <StackProvider app={stackApp}>
+        {children}
+      </StackProvider>
+    );
+  }
+
   return (
     <MockStackProvider>
       {children}

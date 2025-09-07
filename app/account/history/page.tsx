@@ -79,7 +79,7 @@ function OrderStatusBadge({ status }: { status: string }) {
 }
 
 function OrderHistoryContent() {
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90">

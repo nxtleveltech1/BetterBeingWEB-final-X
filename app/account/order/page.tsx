@@ -46,7 +46,7 @@ const products = [
 ];
 
 function OrderContent() {
-  const user = useUser();
+  const { user } = useUser();
   const [cart, setCart] = useState<any[]>([]);
   const [showCheckout, setShowCheckout] = useState(false);
 

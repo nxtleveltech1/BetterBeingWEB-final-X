@@ -18,7 +18,7 @@ function AuthGuardContent({
   requireAuth = true,
   fallback 
 }: AuthGuardProps) {
-  const user = useUser();
+  const { user, isLoading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function AuthGuardContent({
   }, [user, router, redirectTo, requireAuth]);
 
   // Show loading state while checking authentication
-  if (user === undefined) {
+  if (isLoading) {
     return fallback || (
       <div className="min-h-screen bg-[var(--bb-champagne)] flex items-center justify-center">
         <div className="text-center">

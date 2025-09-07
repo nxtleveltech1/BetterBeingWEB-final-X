@@ -113,7 +113,7 @@ function OrderStatusBadge({ status }: { status: string }) {
 }
 
 function AccountPageContent() {
-  const user = useUser();
+  const { user } = useUser();
   const stackApp = useStackApp();
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
