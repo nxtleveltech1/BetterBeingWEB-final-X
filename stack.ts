@@ -1,3 +1,4 @@
+import "server-only";
 import { StackServerApp } from '@stackframe/stack';
 
 // Check if we're in build mode and provide dummy values to prevent build failures
@@ -10,8 +11,8 @@ const publishableKey = process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY || (
 const secretKey = process.env.STACK_SECRET_SERVER_KEY || (isBuild ? 'st_tcuTCuGSEeaE_sk' : 'demo-secret-key');
 
 export const stackServerApp = new StackServerApp({
-  tokenStore: 'nextjs-cookie', 
-  projectId: projectId,
+  tokenStore: 'nextjs-cookie',
+  projectId,
   publishableClientKey: publishableKey,
   secretServerKey: secretKey,
 });

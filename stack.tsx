@@ -1,7 +1,2 @@
-import "server-only";
-
-import { StackServerApp } from "@stackframe/stack";
-
-export const stackServerApp = new StackServerApp({
-  tokenStore: "nextjs-cookie",
-});
+// Re-export the configured server app from stack.ts to avoid duplicate configs
+export { stackServerApp } from "./stack";
