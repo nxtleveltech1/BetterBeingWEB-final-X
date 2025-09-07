@@ -1,3 +1,4 @@
+import "server-only";
 import { StackServerApp } from '@stackframe/stack';
 
 // Build-safe Stack Auth configuration
@@ -9,6 +10,7 @@ const projectId = process.env.NEXT_PUBLIC_STACK_PROJECT_ID || 'build-mock-projec
 const publishableKey = process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY || 'build-mock-publishable-key';
 const secretKey = process.env.STACK_SECRET_SERVER_KEY || 'build-mock-secret-key';
 
+<<<<<<< HEAD
 // Only export when not in build phase or when properly configured
 export const stackServerApp = (() => {
   try {
@@ -43,3 +45,11 @@ export const stackServerApp = (() => {
     } as any;
   }
 })();
+=======
+export const stackServerApp = new StackServerApp({
+  tokenStore: 'nextjs-cookie',
+  projectId,
+  publishableClientKey: publishableKey,
+  secretServerKey: secretKey,
+});
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce

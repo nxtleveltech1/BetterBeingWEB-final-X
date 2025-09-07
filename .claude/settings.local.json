@@ -32,7 +32,15 @@
       "Bash(pip install:*)",
       "Bash(npm run build)",
       "Bash(npm run build:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(git push:*)",
+      "Bash(npx next:*)",
+      "Bash(rm:*)",
+      "Bash(timeout 120 npx next build)",
+      "Bash(timeout 90 npx next build)",
+      "Bash(node:*)",
+      "Bash(bash:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

@@ -1,9 +1,12 @@
 'use client';
 
-import { useUser, useStackApp } from '@stackframe/stack';
+export const dynamic = 'force-dynamic';
+
+import { useUser, useStackApp } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import AuthGuard from '../components/AuthGuard';
 import {
   User,
   Mail,
@@ -109,8 +112,8 @@ function OrderStatusBadge({ status }: { status: string }) {
   );
 }
 
-export default function AccountPage() {
-  const user = useUser();
+function AccountPageContent() {
+  const { user } = useUser();
   const stackApp = useStackApp();
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
@@ -118,16 +121,10 @@ export default function AccountPage() {
   const [originalUserData, setOriginalUserData] = useState(mockUser);
   const [activeTab, setActiveTab] = useState("profile");
 
-  useEffect(() => {
-    if (!user) {
-      router.push('/auth/login');
-    }
-  }, [user, router]);
-
   const handleSignOut = async () => {
     try {
-      if (user && user.signOut) {
-        await user.signOut();
+      if (stackApp && stackApp.signOut) {
+        await stackApp.signOut();
         router.push('/');
       }
     } catch (error) {
@@ -156,13 +153,6 @@ export default function AccountPage() {
     setIsEditing(true);
   };
 
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-[var(--bb-champagne)] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--bb-mahogany)]"></div>
-      </div>
-    );
-  }
 
   const tabs = [
     { id: "profile", label: "Profile", icon: User },
@@ -217,10 +207,10 @@ export default function AccountPage() {
                   <User className="w-10 h-10 text-white" />
                 </div>
                 <h1 className="text-xl font-heading font-bold text-[var(--color-neutral-900)] mb-1">
-                  {user.displayName || user.primaryEmail}
+                  {user?.firstName ? `${user.firstName} ${user.lastName || ''}`.trim() : user?.email || 'Guest User'}
                 </h1>
                 <p className="text-[var(--color-neutral-600)] text-sm">
-                  {user.primaryEmail}
+                  {user?.email || 'No email available'}
                 </p>
               </div>
 
@@ -586,7 +576,7 @@ export default function AccountPage() {
 
                       <div className="flex items-center justify-between p-4 bg-[var(--color-neutral-100)] rounded-lg">
                         <div>
-                          <h4 className="font-medium text-[var(--color-neutral-900)]">
+                          <h4 className="font-medium text-[var(--color-neutral-700)] mb-2">
                             Push Notifications
                           </h4>
                           <p className="text-[var(--color-neutral-600)] text-sm">
@@ -614,5 +604,13 @@ export default function AccountPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AccountPage() {
+  return (
+    <AuthGuard requireAuth={true}>
+      <AccountPageContent />
+    </AuthGuard>
   );
 }

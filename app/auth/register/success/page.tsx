@@ -1,14 +1,10 @@
 'use client';
 
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
+
 import Link from "next/link";
-import { 
-  CheckCircle, 
-  Mail, 
-  ArrowRight,
-  Leaf,
-  Clock,
-  Shield
-} from "lucide-react";
+import { CheckCircle, Leaf, Mail, ArrowRight } from "lucide-react";
 
 export default function RegisterSuccess() {
   return (
@@ -27,109 +23,70 @@ export default function RegisterSuccess() {
         </div>
       </header>
 
-      <div className="pt-16 pb-20">
+      <div className="pt-16 pb-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-md mx-auto text-center">
             {/* Success Icon */}
-            <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
-              <CheckCircle className="w-12 h-12 text-white" />
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="h-10 w-10 text-green-600" />
             </div>
 
             {/* Success Message */}
-            <h1 className="text-4xl font-heading font-bold text-[var(--color-neutral-900)] mb-4">
+            <h1 className="text-3xl font-bold text-[var(--color-neutral-900)] mb-4">
               Welcome to Better Being!
             </h1>
-            <p className="text-xl text-[var(--color-neutral-600)] mb-8 leading-relaxed">
-              Your account has been successfully created. We've sent a verification email to your inbox.
+            
+            <p className="text-[var(--color-neutral-600)] mb-6">
+              Your account has been created successfully. You can now start exploring our premium wellness products and services.
             </p>
 
-            {/* Verification Steps */}
-            <div className="bg-white rounded-2xl p-8 mb-8 border border-[var(--color-neutral-200)] shadow-sm">
-              <h2 className="text-2xl font-heading font-semibold text-[var(--color-neutral-900)] mb-6">
-                Next Steps
-              </h2>
-              
-              <div className="space-y-6 text-left">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-neutral-900)] mb-1">
-                      Check Your Email
-                    </h3>
-                    <p className="text-[var(--color-neutral-600)]">
-                      We've sent a verification link to your email address. Click the link to verify your account.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-neutral-900)] mb-1">
-                      Verification Time
-                    </h3>
-                    <p className="text-[var(--color-neutral-600)]">
-                      The verification link is valid for 24 hours. Please verify your email within this time.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-neutral-900)] mb-1">
-                      Secure Account
-                    </h3>
-                    <p className="text-[var(--color-neutral-600)]">
-                      Email verification helps us keep your account secure and ensures you receive important updates.
-                    </p>
-                  </div>
-                </div>
+            {/* Email Verification Notice */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="flex items-center justify-center mb-2">
+                <Mail className="h-5 w-5 text-blue-600 mr-2" />
+                <h3 className="font-semibold text-blue-900">Check Your Email</h3>
               </div>
-
-              {/* Didn't Receive Email */}
-              <div className="mt-8 pt-6 border-t border-[var(--color-neutral-200)]">
-                <p className="text-[var(--color-neutral-600)] text-sm mb-4">
-                  Didn't receive the email? Check your spam folder or:
-                </p>
-                <button className="text-[var(--bb-mahogany)] hover:text-[var(--bb-citron)] text-sm font-medium transition-colors">
-                  Resend verification email
-                </button>
-              </div>
+              <p className="text-sm text-blue-700">
+                We've sent you a verification email. Please click the link in your email to verify your account for full access to all features.
+              </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="space-y-3">
               <Link
-                href="/auth/login"
-                className="btn-primary px-8 py-3 text-lg"
+                href="/products"
+                className="btn-primary w-full h-11 inline-flex items-center justify-center"
               >
-                Sign In Now
-                <ArrowRight className="w-5 h-5 ml-2" />
+                Start Shopping
+                <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
               
               <Link
-                href="/products"
-                className="btn-secondary px-8 py-3 text-lg"
+                href="/auth/login"
+                className="btn-secondary w-full h-11 inline-flex items-center justify-center"
               >
-                Browse Products
+                Sign In
               </Link>
             </div>
 
-            {/* Support */}
-            <div className="mt-12 pt-8 border-t border-[var(--color-neutral-200)]">
-              <p className="text-[var(--color-neutral-600)]">
-                Need help?{' '}
-                <Link href="/support" className="text-[var(--bb-mahogany)] hover:text-[var(--bb-citron)] font-medium hover:underline">
-                  Contact our support team
-                </Link>
+            {/* Additional Info */}
+            <div className="mt-8 text-center">
+              <p className="text-sm text-[var(--color-neutral-500)]">
+                Didn't receive the verification email?{' '}
+                <button className="text-[var(--bb-mahogany)] hover:text-[var(--bb-citron)] hover:underline font-medium">
+                  Resend verification
+                </button>
               </p>
+            </div>
+
+            {/* Back to Home */}
+            <div className="mt-6 text-center">
+              <Link
+                href="/"
+                className="text-sm text-[var(--color-neutral-500)] hover:text-[var(--color-neutral-700)] hover:underline"
+              >
+                ← Back to Home
+              </Link>
             </div>
           </div>
         </div>

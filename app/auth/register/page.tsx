@@ -1,9 +1,14 @@
 'use client';
 
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useAuth } from "@/contexts/AuthContext";
+import { useUser } from '@/lib/useAuth';
+import authService from '../../../lib/services/auth.service';
+import { RegisterUserData } from '../../../lib/types/auth';
 import { 
   Eye, 
   EyeOff, 
@@ -32,7 +37,7 @@ export default function Register() {
     agreeToTerms: false
   });
   const router = useRouter();
-  const { register: registerUser } = useAuth();
+  const { user } = useUser();
 
   const passwordRequirements = [
     { label: "At least 8 characters", met: formData.password.length >= 8 },
@@ -78,18 +83,43 @@ export default function Register() {
     }
 
     try {
-      const ok = await registerUser({
-        name: `${formData.firstName} ${formData.lastName}`.trim(),
+      const registrationData: RegisterUserData = {
         email: formData.email,
         password: formData.password,
-      } as any);
-      if (ok) {
-        router.push('/auth/register/success');
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        marketingConsent: false // Based on form, user already agreed to terms
+      };
+
+      const result = await authService.register(registrationData);
+      
+      if (result.success) {
+        // Store tokens if registration was successful
+        if (result.data.tokens) {
+          authService.storeAuthTokens(result.data.tokens);
+        }
+        
+        // Check if email verification is required
+        if (result.data.emailVerificationToken) {
+          router.push('/auth/register/verify-email');
+        } else {
+          router.push('/auth/register/success');
+        }
       } else {
-        setError('Registration failed. Please check your details.');
+        // Handle specific error cases
+        if (result.error.code === 'USER_EXISTS') {
+          setError('An account already exists with this email address.');
+        } else if (result.error.code === 'WEAK_PASSWORD') {
+          setError('Password does not meet security requirements.');
+        } else if (result.error.code === 'INVALID_EMAIL') {
+          setError('Please enter a valid email address.');
+        } else {
+          setError(result.error.message || 'Registration failed. Please try again.');
+        }
       }
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      console.error('Registration error:', err);
+      setError('Registration failed. Please check your connection and try again.');
     } finally {
       setIsLoading(false);
     }

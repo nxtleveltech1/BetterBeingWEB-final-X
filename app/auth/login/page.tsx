@@ -1,34 +1,17 @@
 'use client';
 
-import { useUser, SignIn } from '@stackframe/stack';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+// Prevent SSG and ensure runtime-only behavior
+export const dynamic = 'force-dynamic';
+
+import { SignIn } from '@/lib/StackAuthComponents';
 import Link from "next/link";
 import { Leaf } from "lucide-react";
-import { stackApp } from "@/lib/stack";
+import AuthGuard from '../../components/AuthGuard';
 
-export default function Login() {
-  const user = useUser();
-  const router = useRouter();
-  
-  // Redirect to account page if user is logged in
-  useEffect(() => {
-    if (user) {
-      router.push('/account');
-    }
-  }, [user, router]);
+// Add dynamic export to prevent SSG
+export const dynamic = 'force-dynamic';
 
-  // Show loading while redirecting
-  if (user) {
-    return (
-      <div className="min-h-screen bg-[#F9E7C9] flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ba7500] mx-auto mb-4"></div>
-          <p className="text-lg mb-4">Redirecting to your account...</p>
-        </div>
-      </div>
-    );
-  }
+function LoginContent() {
 
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
@@ -92,5 +75,13 @@ export default function Login() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Login() {
+  return (
+    <AuthGuard requireAuth={false}>
+      <LoginContent />
+    </AuthGuard>
   );
 }

@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ShoppingCart, Heart } from "lucide-react";
-import Image from "next/image";
-import productsImage from "@/assets/products-showcase.jpg";
+// Using standard img tags for assets
+// Using placeholder image for products showcase
 import { getFeaturedProducts } from "@/data/products";
 import type { Product } from "@/types/product";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export const ProductsSection = () => {
   const featuredProducts = getFeaturedProducts();
@@ -34,11 +34,10 @@ export const ProductsSection = () => {
         {/* Featured Image */}
         <div className="relative mb-16 animate-scale-in">
           <div className="relative overflow-hidden rounded-3xl shadow-floating">
-            <Image
-              src={productsImage}
+            <img 
+              src="/all_prouct_shots-1.webp" 
               alt="Premium wellness products showcase"
               className="w-full h-64 md:h-96 object-cover"
-              fill
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
             <div className="absolute bottom-8 left-8 text-primary-foreground">
@@ -136,7 +135,7 @@ export const ProductsSection = () => {
 
         {/* CTA */}
         <div className="text-center animate-fade-in-up">
-          <Link to="/products">
+          <Link href="/products">
             <Button size="lg" variant="ghost" className="border-2 border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-lg px-8 py-4">
               View All Better Being Products
             </Button>

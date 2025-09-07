@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "server-only";
 
 import { StackServerApp } from "@stackframe/stack";
@@ -17,3 +18,7 @@ export const stackServerApp = new StackServerApp({
   publishableClientKey: publishableKey,
   secretServerKey: secretKey,
 });
+=======
+// Re-export the configured server app from stack.ts to avoid duplicate configs
+export { stackServerApp } from "./stack";
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce

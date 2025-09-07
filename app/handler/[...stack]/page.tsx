@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { StackHandler } from "@stackframe/stack";
 
 // Build-safe Stack Auth handler
@@ -14,11 +15,27 @@ export default function Handler(props: unknown) {
           <div className="text-sm text-chocolate-500">
             Stack Auth configuration required
           </div>
+=======
+// Ensure this route is handled dynamically at runtime to avoid SSG pre-render
+export const dynamic = "force-dynamic";
+
+export default async function Handler(props: unknown) {
+  // If Stack Auth env vars are not configured, avoid importing the library at build time
+  if (!process.env.NEXT_PUBLIC_STACK_PROJECT_ID) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center p-8 text-center">
+        <div>
+          <h1 className="text-2xl font-semibold mb-2">Authentication Not Configured</h1>
+          <p className="text-muted-foreground max-w-md">
+            Please set NEXT_PUBLIC_STACK_PROJECT_ID and related keys in your Vercel Environment Variables to enable Stack Auth routes.
+          </p>
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce
         </div>
       </div>
     );
   }
 
+<<<<<<< HEAD
   // Only import and use Stack Auth when environment is properly configured
   try {
     const { stackServerApp } = require("../../../stack");
@@ -39,4 +56,9 @@ export default function Handler(props: unknown) {
       </div>
     );
   }
+=======
+  const { StackHandler } = await import("@stackframe/stack");
+  const { stackServerApp } = await import("../../../stack");
+  return <StackHandler fullPage app={stackServerApp} routeProps={props} />;
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce
 }

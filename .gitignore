@@ -8,23 +8,35 @@ npm-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Next.js
-.next/
-out/
-build/
+# Archives and compressed files
+*.zip
+*.rar
+*.tar.gz
+*.tar
+*.7z
+*.tgz
+
+# Build outputs
 dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist/
 
 # Production
 .vercel/
-.env*.local
 
 # Environment variables - NEVER COMMIT THESE
 .env
 .env.local
 .env.development
+.env.development.local
 .env.test
+.env.test.local
 .env.production
-.env.*.local
+.env.production.local
+.env*.local
 **/.env
 **/.env.*
 
@@ -40,19 +52,22 @@ coverage/
 *.lcov
 .nyc_output
 test-results/
-playwright-report/
 test-results-*
+playwright-report/
 
 # IDEs and editors
 .vscode/*
 !.vscode/extensions.json
+.vscode/settings.json
 .idea/
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
+*~
 
 # Logs
 logs/
@@ -63,6 +78,8 @@ pids/
 *.pid
 *.seed
 *.pid.lock
+server.pid
+frontend.pid
 
 # Cache directories
 .cache/
@@ -72,12 +89,11 @@ pids/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
-
-# Optional npm cache directory
 .npm
 
 # Temporary files
 .tmp/
+temp/
 *.tmp
 *.temp
 
@@ -89,46 +105,49 @@ pids/
 .Trashes
 ehthumbs.db
 Thumbs.db
+nul
+90%
 
-# Development and build artifacts  
-*.tgz
-*.tar.gz
+# Claude specific
+.claude/
+.claude-flow/
+.kiro/
+.zed/
+
+# Development artifacts
 .roo/
-
-# IDE specific
-.vscode/settings.json
-.idea/
+.roomodes
+.git.backup
+Tmux-Orchestrator/
 
 # Project specific exclusions
 "white logo.png"
 "Untitled design (1).png"
-*.pid
-server.pid
-frontend.pid
-90%
-nul
-Tmux-Orchestrator/
 
-# Development artifacts and temporary files
-*.html
-*.pdf
+# Large media files and archives
+NEWOG-fullstack/NEWOG/archives/
 *.png
 *.jpg
 *.jpeg
+*.gif
+*.svg
+*.ico
+*.pdf
+*.mp4
+*.mov
+*.avi
+*.html
+
+# Backup files
 *.json.backup
 *.md.backup
 *.ts.backup
 *.py
 *.backup
-.roomodes
-.git.backup
-.claude/
-.kiro/
-.zed/
-90%
-*.pid
-frontend.pid
-server.pid
+
+# Problematic long paths
+NEWOG-fullstack/NEWOG/node_modules/
+.deb
 
 # Generated documentation and reports
 OUR_GROUNDS_*.md
@@ -145,6 +164,9 @@ test-*.html
 *-demo.html
 color-transformation-demo.html
 design-screenshots/
+<<<<<<< HEAD
 # Exclude NEWOG-fullstack project from build
 NEWOG-fullstack/
 playwright-report/
+=======
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce

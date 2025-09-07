@@ -26,5 +26,13 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+<<<<<<< HEAD
   "exclude": ["node_modules", "NEWOG-fullstack"]
+=======
+  "exclude": [
+    "node_modules",
+    "NEWOG-fullstack/**",
+    "BetterBeingWEB-final X/**"
+  ]
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce
 }
