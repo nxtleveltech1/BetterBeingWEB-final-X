@@ -52,7 +52,7 @@ jobs:
       has-design-changes: ${{ steps.changes.outputs.design }}
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -95,7 +95,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v5
@@ -159,7 +159,7 @@ jobs:
         browser: [chromium]
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v5
@@ -216,7 +216,7 @@ jobs:
         device: [mobile, tablet, desktop]
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v5
@@ -261,7 +261,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v5
@@ -308,7 +308,7 @@ jobs:
     timeout-minutes: 8
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v5
@@ -354,7 +354,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 📥 Download all artifacts
         uses: actions/download-artifact@v4
@@ -415,7 +415,7 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 📥 Download AI design analysis
         uses: actions/download-artifact@v4

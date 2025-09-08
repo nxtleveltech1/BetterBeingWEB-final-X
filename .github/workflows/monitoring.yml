@@ -219,7 +219,7 @@ jobs:
     if: github.event.inputs.check_type == 'security' || github.event.inputs.check_type == 'full'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
