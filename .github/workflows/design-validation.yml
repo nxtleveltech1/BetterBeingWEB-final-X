@@ -379,7 +379,7 @@ jobs:
           PR_NUMBER: ${{ github.event.number }}
 
       - name: 📋 Create PR comment with results
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         if: github.event_name == 'pull_request'
         with:
           script: |
@@ -469,7 +469,7 @@ jobs:
     if: always()
     steps:
       - name: 🗑️ Delete temporary artifacts
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             // Keep only the final report and critical artifacts
