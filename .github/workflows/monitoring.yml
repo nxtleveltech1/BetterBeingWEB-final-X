@@ -68,7 +68,7 @@ jobs:
 
       - name: Create health status issue
         if: steps.prod-health.outputs.status == 'unhealthy'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = `🚨 Production Health Alert - ${new Date().toISOString()}`;
@@ -156,7 +156,7 @@ jobs:
 
       - name: Performance alert
         if: steps.perf-check.outputs.performance_status == 'degraded'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = `⚡ Performance Alert - Slow Response Times`;
